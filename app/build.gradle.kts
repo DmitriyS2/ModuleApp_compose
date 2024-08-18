@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -57,8 +59,23 @@ dependencies {
     implementation(project(":core:common"))
     implementation(project(":features:plusOne"))
 
+    // Kotlin coroutines with lifecycle
+    implementation(libs.bundles.lifecycle)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    // Room
+    implementation(libs.androidx.room.ktx)
+    annotationProcessor(libs.androidx.room.annotation.processor)
+    ksp(libs.androidx.room.annotation.processor)
+
+    // dependencies for Java 8+ API desugaring support (for the new language APIs)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
+
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
