@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
+
+
+
 android {
     namespace = "com.sd.plusone"
     compileSdk = 34
@@ -30,13 +33,31 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
 }
 
 dependencies {
+    // Compose
+    implementation(libs.compose.activity.compose)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.graphics)
+    implementation(libs.compose.ui.tooling.preview)
+  //  androidTestImplementation(platform(libs.compose.bom))
+ //   debugImplementation(libs.compose.ui.tooling)
+  //  debugImplementation(libs.compose.ui.test.manifest)
+    implementation(libs.compose.material3)
+    androidTestImplementation(libs.compose.ui.test.junit4)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.runtime.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
