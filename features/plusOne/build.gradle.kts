@@ -1,13 +1,15 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 
 
 
 android {
-    namespace = "com.sd.plusone"
+    namespace = "com.sd.features.plusone"
     compileSdk = 34
 
     defaultConfig {
@@ -42,15 +44,22 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain:api"))
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.runtime.livedata)
+    ksp(libs.hilt.compiler)
+
     // Compose
     implementation(libs.compose.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
-  //  androidTestImplementation(platform(libs.compose.bom))
- //   debugImplementation(libs.compose.ui.tooling)
-  //  debugImplementation(libs.compose.ui.test.manifest)
+    androidTestImplementation(platform(libs.compose.bom))
+    debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.test.manifest)
     implementation(libs.compose.material3)
     androidTestImplementation(libs.compose.ui.test.junit4)
 

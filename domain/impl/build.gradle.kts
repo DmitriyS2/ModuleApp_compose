@@ -1,10 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.sd.impl"
+    namespace = "com.sd.domain.impl"
     compileSdk = 34
 
     defaultConfig {
@@ -33,6 +35,12 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:api"))
+    implementation(project(":domain:api"))
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
