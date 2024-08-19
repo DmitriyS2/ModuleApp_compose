@@ -1,14 +1,15 @@
 package com.sd.impl
 
-import com.sd.api.PlusOneRepository
+import com.sd.api.NumberRepository
 import com.sd.api.PlusOneUseCase
+import com.sd.common.model.NumberModel
 import javax.inject.Inject
 
 class PlusOneUseCaseImpl @Inject constructor(
-    private val plusOneRepository: PlusOneRepository
+    private val numberRepository: NumberRepository
 ) : PlusOneUseCase {
 
-    override operator fun invoke(number: Int): Int {
-        return plusOneRepository.plusOne(number)
+    override suspend operator fun invoke(numberModel: NumberModel) {
+        numberRepository.setNumber(numberModel)
     }
 }

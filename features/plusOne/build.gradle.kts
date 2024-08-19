@@ -49,6 +49,7 @@ dependencies {
     // Dagger Hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.runtime.livedata)
+    implementation(project(":core:common"))
     ksp(libs.hilt.compiler)
 
     // Compose

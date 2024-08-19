@@ -43,7 +43,7 @@ fun MainScreen(vm: MainViewModel) {
                     .padding(top = 20.dp, bottom = 20.dp),
                 textAlign = TextAlign.Center,
                 fontSize = 22.sp,
-                text = number.toString()
+                text = number?.number.toString()
             )
         }
         Spacer(
@@ -51,9 +51,9 @@ fun MainScreen(vm: MainViewModel) {
                 .fillMaxWidth()
                 .height(20.dp)
         )
-        Button(modifier = Modifier.width(150.dp), onClick = {
-            vm.plusOne()
-        }) {
+        Button(
+            modifier = Modifier.width(150.dp), onClick = { vm.plusOne() }
+        ) {
             Text("+1")
         }
     }

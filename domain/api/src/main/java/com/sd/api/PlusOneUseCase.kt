@@ -1,6 +1,8 @@
 package com.sd.api
 
+import com.sd.common.model.NumberModel
+
 interface PlusOneUseCase {
 
-    operator fun invoke(number:Int):Int
+    suspend operator fun invoke(numberModel: NumberModel)
 }
