@@ -1,4 +1,4 @@
-package com.sd.impl
+package com.sd.impl.usecase
 
 import androidx.lifecycle.LiveData
 import com.sd.api.GetNumberUseCase

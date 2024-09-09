@@ -1,12 +1,12 @@
-package com.sd.impl
+package com.sd.impl.usecase
 
-import com.sd.api.FirstNumberUseCase
+import com.sd.api.GetFirstNumberUseCase
 import com.sd.api.NumberRepository
 import javax.inject.Inject
 
-class FirstNumberUseCaseImpl @Inject constructor(
+class GetFirstNumberUseCaseImpl @Inject constructor(
     private val repository: NumberRepository
-) : FirstNumberUseCase {
+) : GetFirstNumberUseCase {
 
     override suspend operator fun invoke() {
         repository.setFirstNumber()

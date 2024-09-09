@@ -1,11 +1,11 @@
 package com.sd.moduleapp.di
 
-import com.sd.api.FirstNumberUseCase
+import com.sd.api.GetFirstNumberUseCase
 import com.sd.api.GetNumberUseCase
 import com.sd.api.PlusOneUseCase
-import com.sd.impl.FirstNumberUseCaseImpl
-import com.sd.impl.GetNumberUseCaseImpl
-import com.sd.impl.PlusOneUseCaseImpl
+import com.sd.impl.usecase.GetFirstNumberUseCaseImpl
+import com.sd.impl.usecase.GetNumberUseCaseImpl
+import com.sd.impl.usecase.PlusOneUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -22,5 +22,5 @@ interface UseCaseModule {
     fun bindGetNumberUseCase(impl: GetNumberUseCaseImpl): GetNumberUseCase
 
     @Binds
-    fun bindFirstNumberUseCase(impl: FirstNumberUseCaseImpl): FirstNumberUseCase
+    fun bindFirstNumberUseCase(impl: GetFirstNumberUseCaseImpl): GetFirstNumberUseCase
 }

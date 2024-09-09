@@ -37,10 +37,10 @@ android {
 dependencies {
     implementation(project(":data:api"))
     implementation(project(":domain:api"))
+    implementation(project(":core:common"))
 
     // Dagger Hilt
     implementation(libs.hilt.android)
-    implementation(project(":core:common"))
     ksp(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)

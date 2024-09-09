@@ -5,9 +5,6 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-
-
-
 android {
     namespace = "com.sd.features.plusone"
     compileSdk = 34
@@ -45,11 +42,12 @@ android {
 
 dependencies {
     implementation(project(":domain:api"))
+    implementation(project(":domain:impl"))
+    implementation(project(":core:common"))
 
     // Dagger Hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.runtime.livedata)
-    implementation(project(":core:common"))
     ksp(libs.hilt.compiler)
 
     // Compose

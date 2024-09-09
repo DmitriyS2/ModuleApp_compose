@@ -11,7 +11,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.sd.common.sealed.Routes
+import com.sd.plusone.presentation.Routes
 import com.sd.moduleapp.ui.theme.ModuleAppTheme
 import com.sd.plusone.presentation.MainScreen
 import com.sd.plusone.presentation.MainViewModel

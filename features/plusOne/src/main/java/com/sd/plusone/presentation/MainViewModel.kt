@@ -1,10 +1,9 @@
 package com.sd.plusone.presentation
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sd.api.FirstNumberUseCase
+import com.sd.api.GetFirstNumberUseCase
 import com.sd.api.GetNumberUseCase
 import com.sd.api.PlusOneUseCase
 import com.sd.common.model.NumberModel
@@ -14,8 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val firstNumberUseCase: FirstNumberUseCase,
-    private val getNumberUseCase: GetNumberUseCase,
+    private val getFirstNumberUseCase: GetFirstNumberUseCase,
+    getNumberUseCase: GetNumberUseCase,
     private val plusOneUseCase: PlusOneUseCase
 ) : ViewModel() {
 
@@ -32,7 +31,7 @@ class MainViewModel @Inject constructor(
     }
 
     private suspend fun addFirstNumberToDb() {
-        firstNumberUseCase()
+        getFirstNumberUseCase()
     }
 
     fun plusOne() {

@@ -1,6 +1,6 @@
 package com.sd.api
 
-interface FirstNumberUseCase {
+interface GetFirstNumberUseCase {
 
     suspend operator fun invoke()
 }

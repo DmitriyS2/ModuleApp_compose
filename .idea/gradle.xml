@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/core/common" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/api" />
-            <option value="$PROJECT_DIR$/data/db" />
             <option value="$PROJECT_DIR$/data/impl" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/api" />

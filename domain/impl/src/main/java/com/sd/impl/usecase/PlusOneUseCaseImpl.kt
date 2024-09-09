@@ -1,4 +1,4 @@
-package com.sd.impl
+package com.sd.impl.usecase
 
 import com.sd.api.NumberRepository
 import com.sd.api.PlusOneUseCase

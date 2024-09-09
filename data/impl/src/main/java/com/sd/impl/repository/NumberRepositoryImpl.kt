@@ -6,7 +6,8 @@ import com.sd.api.NumberRepository
 import com.sd.common.extensions.plus1
 import com.sd.common.model.NumberModel
 import com.sd.impl.db.NumberDao
-import com.sd.impl.mapper.Mapper
+import com.sd.impl.mapper.toEntity
+import com.sd.impl.mapper.toModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -35,14 +36,12 @@ class NumberRepositoryImpl @Inject constructor(
         }
     }
 
-    private val mapper = Mapper()
-
     override fun getNumber() = numberDao.getNumber().map {
-        mapper.entityToModel(it)
+        it.toModel()
     }
 
     override suspend fun setNumber(numberModel: NumberModel) {
         val newNumberModel = numberModel.copy(number = numberModel.number.plus1())
-        numberDao.setNumber(mapper.modelToEntity(newNumberModel))
+        numberDao.setNumber(newNumberModel.toEntity())
     }
 }
